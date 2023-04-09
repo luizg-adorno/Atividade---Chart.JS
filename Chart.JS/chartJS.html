@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboards - Chart.JS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        canvas {
+            height: 50vh;
+            width: 50vw;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <canvas id="grafico_de_linhas"></canvas>
+    </div>
+    <script>
+        var ctx = document.getElementById('grafico_de_linhas');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+                datasets: [{
+                    label: 'Temperatura',
+                    data: [30, 29, 28, 25, 22, 23],
+                    borderColor: '#2F66FF'
+                }, {
+                    label: 'Umidade',
+                    data: [80, 82, 80, 85, 80, 83],
+                    borderColor: '#FF2F82'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+
+    <div>
+        <canvas id="grafico_de_barras"></canvas>
+    </div>
+    <script>
+        var ctx = document.getElementById('grafico_de_barras');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+                datasets: [{
+                    label: 'Temperatura Média',
+                    data: [22, 24, 27, 23, 20, 18],
+                    backgroundColor: '#FF2F82',
+                    borderWidth: 1
+                }, {
+                    label: 'Umidade Média',
+                    data: [90, 89, 93, 87, 88, 82],
+                    backgroundColor: '#2F66FF',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
